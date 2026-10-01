@@ -36,7 +36,7 @@
     background: #000000;
   }
 
-  /* --- Interactive Apple Starfield Canvas --- */
+  /* Sparse Calm Starfield */
   #apple-particle-canvas {
     position: absolute;
     inset: 0;
@@ -44,27 +44,27 @@
     height: 100%;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.85;
+    opacity: 0.55;
   }
 
-  /* --- Siri / Keynote Morphing Mesh Glow --- */
+  /* Subtle Small Gradient Aura */
   .siri-mesh {
     position: absolute;
-    top: 20%;
+    top: 24%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 420px;
-    height: 420px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
     background: conic-gradient(
       from 180deg at 50% 50%,
-      rgba(94, 92, 230, 0.38) 0deg,
-      rgba(41, 151, 255, 0.32) 95deg,
-      rgba(48, 209, 88, 0.22) 190deg,
-      rgba(191, 90, 242, 0.30) 280deg,
-      rgba(94, 92, 230, 0.38) 360deg
+      rgba(94, 92, 230, 0.26) 0deg,
+      rgba(41, 151, 255, 0.20) 95deg,
+      rgba(48, 209, 88, 0.15) 190deg,
+      rgba(191, 90, 242, 0.20) 280deg,
+      rgba(94, 92, 230, 0.26) 360deg
     );
-    filter: blur(80px);
+    filter: blur(55px);
     animation: siriSpin 14s linear infinite alternate, siriMorph 7s ease-in-out infinite alternate;
     pointer-events: none;
     z-index: 1;
@@ -73,16 +73,16 @@
 
   @keyframes siriSpin {
     0% { transform: translate(-50%, -50%) rotate(0deg) scale(0.9); }
-    100% { transform: translate(-50%, -50%) rotate(360deg) scale(1.15); }
+    100% { transform: translate(-50%, -50%) rotate(360deg) scale(1.1); }
   }
 
   @keyframes siriMorph {
-    0% { border-radius: 46% 54% 60% 40% / 45% 40% 60% 55%; filter: blur(75px); }
-    50% { border-radius: 58% 42% 38% 62% / 60% 52% 48% 40%; filter: blur(90px); }
-    100% { border-radius: 40% 60% 52% 48% / 48% 58% 42% 52%; filter: blur(75px); }
+    0% { border-radius: 46% 54% 60% 40% / 45% 40% 60% 55%; filter: blur(50px); }
+    50% { border-radius: 58% 42% 38% 62% / 60% 52% 48% 40%; filter: blur(60px); }
+    100% { border-radius: 40% 60% 52% 48% / 48% 58% 42% 52%; filter: blur(50px); }
   }
 
-  /* --- Navigation / Brand Bar --- */
+  /* Header */
   .nav-header {
     display: flex;
     justify-content: space-between;
@@ -114,7 +114,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 35% 25%, rgba(94, 92, 230, 0.5), transparent 65%);
+    background: radial-gradient(circle at 35% 25%, rgba(94, 92, 230, 0.4), transparent 65%);
   }
 
   .app-icon svg {
@@ -144,7 +144,6 @@
     letter-spacing: -0.01em;
   }
 
-  /* Live Pulsing Dynamic Island Badge */
   .dynamic-badge {
     display: inline-flex;
     align-items: center;
@@ -193,7 +192,7 @@
     text-transform: uppercase;
   }
 
-  /* --- Minimal Center Stage --- */
+  /* Center Stage */
   .center-stage {
     position: relative;
     z-index: 2;
@@ -206,46 +205,52 @@
     padding: 20px 0;
   }
 
-  /* --- Apple-Grade Animated Hourglass / Sand Watch --- */
+  /* Hourglass Glass Pod */
   .hourglass-chamber {
     position: relative;
-    width: 90px;
-    height: 90px;
+    width: 104px;
+    height: 104px;
     display: grid;
     place-items: center;
     border-radius: 28px;
-    background: linear-gradient(180deg, rgba(30, 30, 36, 0.55) 0%, rgba(14, 14, 18, 0.8) 100%);
-    border: 0.5px solid rgba(255, 255, 255, 0.16);
-    backdrop-filter: blur(30px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 1px rgba(255, 255, 255, 0.2);
-    margin-bottom: 32px;
+    background: linear-gradient(165deg, rgba(38, 42, 58, 0.6) 0%, rgba(14, 15, 22, 0.85) 100%);
+    border: 0.5px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(32px) saturate(180%);
+    -webkit-backdrop-filter: blur(32px) saturate(180%);
+    box-shadow:
+      0 24px 60px rgba(0, 0, 0, 0.75),
+      inset 0 1px 1px rgba(255, 255, 255, 0.3),
+      inset 0 -1px 1px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+    overflow: hidden;
   }
 
-  .hourglass-svg {
-    width: 44px;
-    height: 44px;
-    animation: sandwatchTurn 4.6s cubic-bezier(0.77, 0, 0.175, 1) infinite;
-    filter: drop-shadow(0 4px 12px rgba(118, 217, 197, 0.35));
+  .hourglass-chamber::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -60%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+    transform: skewX(-22deg);
+    animation: podShine 5s infinite ease-in-out;
+    pointer-events: none;
   }
 
-  @keyframes sandwatchTurn {
-    0%, 40% { transform: rotate(0deg); }
-    50%, 90% { transform: rotate(180deg); }
-    100% { transform: rotate(360deg); }
+  @keyframes podShine {
+    0%, 70% { left: -60%; }
+    100% { left: 160%; }
   }
 
-  /* Falling Sand Trickle */
-  .sand-stream {
-    stroke-dasharray: 4, 3;
-    animation: sandFlow 0.8s linear infinite;
+  #hourglass-physics {
+    width: 76px;
+    height: 76px;
+    display: block;
+    cursor: default;
+    filter: drop-shadow(0 4px 14px rgba(118, 217, 197, 0.35));
   }
 
-  @keyframes sandFlow {
-    from { stroke-dashoffset: 0; }
-    to { stroke-dashoffset: 7; }
-  }
-
-  /* Headline & Microcopy */
   .pill-badge {
     display: inline-flex;
     align-items: center;
@@ -301,7 +306,6 @@
     color: #86868b;
   }
 
-  /* Minimal Live Pulse Ellipsis */
   .ellipsis-flow {
     display: inline-flex;
     gap: 4px;
@@ -324,7 +328,7 @@
     50% { opacity: 1; transform: scale(1.15); background: #f5f5f7; }
   }
 
-  /* --- Minimal Footer --- */
+  /* Footer */
   .footer-meta {
     position: relative;
     z-index: 2;
@@ -363,7 +367,6 @@
   <canvas id="apple-particle-canvas"></canvas>
   <div class="siri-mesh"></div>
 
-  <!-- Header -->
   <header class="nav-header">
     <div class="brand-group">
       <div class="app-icon">
@@ -395,27 +398,9 @@
     </div>
   </header>
 
-  <!-- Minimal Center Focus -->
   <section class="center-stage">
-    <!-- Animated Sand Watch -->
     <div class="hourglass-chamber">
-      <svg class="hourglass-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="sandGlow" x1="4" y1="2" x2="20" y2="22" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#FFFFFF"/>
-            <stop offset="0.5" stop-color="#BDB5FF"/>
-            <stop offset="1" stop-color="#70E0CA"/>
-          </linearGradient>
-        </defs>
-        <!-- Hourglass Frame -->
-        <path d="M6 3H18M6 21H18" stroke="url(#sandGlow)" stroke-width="1.6" stroke-linecap="round"/>
-        <path d="M7 3C7 9 11.5 11 12 12C12.5 11 17 9 17 3" stroke="url(#sandGlow)" stroke-width="1.4" stroke-linecap="round"/>
-        <path d="M7 21C7 15 11.5 13 12 12C12.5 13 17 15 17 21" stroke="url(#sandGlow)" stroke-width="1.4" stroke-linecap="round"/>
-        <!-- Trickling Center Stream -->
-        <line x1="12" y1="11" x2="12" y2="18" stroke="url(#sandGlow)" stroke-width="1.3" class="sand-stream"/>
-        <!-- Bottom Settling Sand -->
-        <path d="M9 19.5C10.5 18.5 13.5 18.5 15 19.5" stroke="url(#sandGlow)" stroke-width="1.4" stroke-linecap="round"/>
-      </svg>
+      <canvas id="hourglass-physics" width="152" height="152"></canvas>
     </div>
 
     <div class="pill-badge">Crafting Platform</div>
@@ -429,7 +414,6 @@
     </div>
   </section>
 
-  <!-- Minimal Footer -->
   <footer class="footer-meta">
     <div class="separator"></div>
     <div class="meta-tagline">“A mirror for your professional knowledge.”</div>
@@ -437,7 +421,9 @@
 </main>
 
 <script>
-  /* Apple Starfield Canvas */
+  /* -------------------------------------------------------------
+     1. Background Starfield
+  ------------------------------------------------------------- */
   (function initParticleEngine() {
     const canvas = document.getElementById('apple-particle-canvas');
     const ctx = canvas.getContext('2d');
@@ -451,18 +437,18 @@
     window.addEventListener('resize', resize);
     resize();
 
-    const STAR_COUNT = 90;
+    const STAR_COUNT = 24;
     for (let i = 0; i < STAR_COUNT; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        radius: Math.random() * 1.6 + 0.4,
-        isSparkle: Math.random() > 0.70,
-        baseAlpha: Math.random() * 0.5 + 0.25,
+        radius: Math.random() * 1.3 + 0.4,
+        isSparkle: Math.random() > 0.82,
+        baseAlpha: Math.random() * 0.4 + 0.15,
         alphaPhase: Math.random() * Math.PI * 2,
-        pulseSpeed: Math.random() * 0.035 + 0.015,
-        speedY: - (Math.random() * 0.35 + 0.1),
-        speedX: (Math.random() - 0.5) * 0.18
+        pulseSpeed: Math.random() * 0.025 + 0.01,
+        speedY: - (Math.random() * 0.22 + 0.06),
+        speedX: (Math.random() - 0.5) * 0.1
       });
     }
 
@@ -480,8 +466,8 @@
       ctx.lineTo(cx, cy - outerRadius);
       ctx.closePath();
       ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
-      ctx.shadowColor = 'rgba(165, 180, 255, 0.9)';
-      ctx.shadowBlur = 8;
+      ctx.shadowColor = 'rgba(165, 180, 255, 0.7)';
+      ctx.shadowBlur = 5;
       ctx.fill();
     }
 
@@ -492,27 +478,239 @@
         p.x += p.speedX;
         p.alphaPhase += p.pulseSpeed;
 
-        const currentAlpha = Math.max(0.12, Math.min(0.95, p.baseAlpha + Math.sin(p.alphaPhase) * 0.35));
+        const currentAlpha = Math.max(0.08, Math.min(0.7, p.baseAlpha + Math.sin(p.alphaPhase) * 0.25));
 
         if (p.y < -12) { p.y = height + 10; p.x = Math.random() * width; }
         if (p.x < -10) p.x = width + 10;
         if (p.x > width + 10) p.x = -10;
 
         if (p.isSparkle) {
-          const armLength = p.radius * 3.4;
+          const armLength = p.radius * 2.8;
           drawSparkle(ctx, p.x, p.y, 4, armLength, armLength * 0.22, currentAlpha);
         } else {
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
           ctx.fillStyle = `rgba(255, 255, 255, ${currentAlpha})`;
-          ctx.shadowColor = 'rgba(145, 130, 255, 0.6)';
-          ctx.shadowBlur = 4;
+          ctx.shadowColor = 'rgba(145, 130, 255, 0.4)';
+          ctx.shadowBlur = 3;
           ctx.fill();
         }
       }
       requestAnimationFrame(renderParticles);
     }
     requestAnimationFrame(renderParticles);
+  })();
+
+  /* -------------------------------------------------------------
+     2. Physically-Accurate Hourglass Simulation
+        - True world-down gravity (+Y)
+        - Rotating bulbs: Bulb A & Bulb B swap roles every 180°
+        - Stream only flows downward through neck when upper bulb has sand
+        - Zero backward gravity / upward motion
+  ------------------------------------------------------------- */
+  (function initHourglassSimulation() {
+    const canvas = document.getElementById('hourglass-physics');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width;
+    const H = canvas.height;
+    const CX = W / 2;
+    const CY = H / 2;
+
+    const DRAIN_TIME = 4200; // ms of steady flow
+    const FLIP_TIME = 900;   // ms rotation
+    const CYCLE_TIME = DRAIN_TIME + FLIP_TIME;
+
+    const startTime = performance.now();
+
+    // Stream grains that only move down (+Y)
+    const grains = [];
+    for (let i = 0; i < 18; i++) {
+      grains.push({
+        y: Math.random() * 26,
+        xOff: (Math.random() - 0.5) * 1.8,
+        speed: 1.4 + Math.random() * 1.8,
+        size: 0.8 + Math.random() * 0.8,
+        alpha: 0.4 + Math.random() * 0.6
+      });
+    }
+
+    function easeInOutBack(x) {
+      const c1 = 1.70158;
+      const c2 = c1 * 1.525;
+      return x < 0.5
+        ? (Math.pow(2 * x, 2) * ((c2 + 1) * 2 * x - c2)) / 2
+        : (Math.pow(2 * x - 2, 2) * ((c2 + 1) * (x * 2 - 2) + c2) + 2) / 2;
+    }
+
+    function render(time) {
+      const elapsed = time - startTime;
+      const cycleIndex = Math.floor(elapsed / CYCLE_TIME);
+      const phaseTime = elapsed % CYCLE_TIME;
+      const isFlipping = phaseTime >= DRAIN_TIME;
+
+      // Calculate glass rotation angle
+      let baseAngle = cycleIndex * Math.PI;
+      let currentAngle = baseAngle;
+      if (isFlipping) {
+        const flipProgress = (phaseTime - DRAIN_TIME) / FLIP_TIME;
+        currentAngle += easeInOutBack(flipProgress) * Math.PI;
+      }
+
+      // Sand drainage ratio: 0.0 (top full) -> 1.0 (bottom full)
+      const drainRatio = isFlipping ? 1.0 : Math.min(1.0, phaseTime / (DRAIN_TIME - 300));
+
+      // Determine which bulb is currently physically at the top
+      // When cycleIndex is even: Bulb 1 is Top, Bulb 2 is Bottom
+      // When cycleIndex is odd: Bulb 2 is Top, Bulb 1 is Bottom
+      const bulb1Fraction = (cycleIndex % 2 === 0) ? (1 - drainRatio) : drainRatio;
+      const bulb2Fraction = 1 - bulb1Fraction;
+
+      ctx.clearRect(0, 0, W, H);
+
+      // Shared Apple line gradient
+      const grad = ctx.createLinearGradient(0, -42, 0, 42);
+      grad.addColorStop(0, '#c7ceff');
+      grad.addColorStop(0.5, '#9182ff');
+      grad.addColorStop(1, '#49d4bc');
+
+      /* ---- DRAW ROTATING GLASS & SAND INSIDE EACH BULB ---- */
+      ctx.save();
+      ctx.translate(CX, CY);
+      ctx.rotate(currentAngle);
+
+      function drawBulbSand(isTop, fraction) {
+        if (fraction <= 0.01) return;
+        ctx.save();
+        ctx.beginPath();
+        if (isTop) {
+          // Top bulb clip region
+          ctx.moveTo(-21, -38);
+          ctx.lineTo(21, -38);
+          ctx.lineTo(2.5, -4);
+          ctx.lineTo(-2.5, -4);
+        } else {
+          // Bottom bulb clip region
+          ctx.moveTo(-2.5, 4);
+          ctx.lineTo(2.5, 4);
+          ctx.lineTo(21, 38);
+          ctx.lineTo(-21, 38);
+        }
+        ctx.closePath();
+        ctx.clip();
+
+        ctx.beginPath();
+        if (isTop) {
+          // Top sand surface lowers as it drains
+          const sandTopY = -4 - (fraction * 34);
+          ctx.moveTo(-22, sandTopY);
+          ctx.quadraticCurveTo(0, sandTopY + 3, 22, sandTopY);
+          ctx.lineTo(22, 0);
+          ctx.lineTo(-22, 0);
+        } else {
+          // Bottom sand rises in a conical mound
+          const moundHeight = fraction * 28;
+          const moundPeakY = 38 - moundHeight;
+          ctx.moveTo(-22, 40);
+          ctx.lineTo(22, 40);
+          ctx.lineTo(20, 38);
+          ctx.quadraticCurveTo(0, moundPeakY, -20, 38);
+        }
+        ctx.closePath();
+        ctx.fillStyle = grad;
+        ctx.globalAlpha = 0.88;
+        ctx.fill();
+        ctx.restore();
+      }
+
+      // Draw sand in Bulb 1 (-Y side in local frame) and Bulb 2 (+Y side in local frame)
+      drawBulbSand(true, bulb1Fraction);
+      drawBulbSand(false, bulb2Fraction);
+
+      /* ---- DRAW HOURGLASS FRAME CONTOUR ---- */
+      ctx.globalAlpha = 1;
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = 2.8;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+
+      // Top and bottom plates
+      ctx.beginPath();
+      ctx.moveTo(-24, -40);
+      ctx.lineTo(24, -40);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(-24, 40);
+      ctx.lineTo(24, 40);
+      ctx.stroke();
+
+      // Hourglass glass walls
+      ctx.beginPath();
+      ctx.moveTo(-22, -39);
+      ctx.bezierCurveTo(-21, -18, -4, -7, -2.6, 0);
+      ctx.bezierCurveTo(-4, 7, -21, 18, -22, 39);
+
+      ctx.moveTo(22, -39);
+      ctx.bezierCurveTo(21, -18, 4, -7, 2.6, 0);
+      ctx.bezierCurveTo(4, 7, 21, 18, 22, 39);
+      ctx.stroke();
+
+      // Subtle inner rim reflection
+      ctx.beginPath();
+      ctx.moveTo(-16, -34);
+      ctx.quadraticCurveTo(-14, -20, -7, -10);
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.45)';
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
+
+      ctx.restore();
+
+      /* ---- DRAW DOWNWARD STREAM (WORLD SPACE ONLY) ---- */
+      // The stream is anchored to the real floor. During flips or when empty, it stops.
+      if (!isFlipping && drainRatio < 0.98) {
+        ctx.save();
+        ctx.translate(CX, CY);
+
+        // Continuous falling trickle
+        ctx.beginPath();
+        ctx.moveTo(0, -3);
+        ctx.lineTo(0, 20);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 1.6;
+        ctx.lineCap = 'round';
+        ctx.globalAlpha = 0.85;
+        ctx.stroke();
+
+        // Falling particles
+        for (let g of grains) {
+          g.y += g.speed;
+          if (g.y > 22) {
+            g.y = -3;
+            g.xOff = (Math.random() - 0.5) * 1.6;
+          }
+          ctx.beginPath();
+          ctx.arc(g.xOff, g.y, g.size * 0.7, 0, Math.PI * 2);
+          ctx.fillStyle = '#ffffff';
+          ctx.globalAlpha = g.alpha;
+          ctx.fill();
+        }
+
+        // Small impact ripple on bottom mound
+        const moundPeak = 38 - (drainRatio * 28);
+        ctx.beginPath();
+        ctx.ellipse(0, moundPeak + 1, 3.5, 1.2, 0, 0, Math.PI * 2);
+        ctx.fillStyle = '#ffffff';
+        ctx.globalAlpha = 0.5;
+        ctx.fill();
+
+        ctx.restore();
+      }
+
+      requestAnimationFrame(render);
+    }
+
+    requestAnimationFrame(render);
   })();
 </script>
 </body>
